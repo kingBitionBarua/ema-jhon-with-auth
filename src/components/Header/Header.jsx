@@ -9,7 +9,9 @@ const Header = () => {
     const {user, logOut} = useContext(AuthContext);
     console.log(user);
     const handleLogout = () => {
-        
+        logOut()
+        .then(result => { })
+        .catch(error => console.log(error));
     }
 
 
@@ -24,7 +26,7 @@ const Header = () => {
                 <Link to="/signup">Sign up</Link>
                 {
                     user &&
-                    <span>Welcome {user.email} <button onClick={handleLogout}>Sign out</button></span>
+                    <span className='text-white'>Welcome {user.email} <button onClick={handleLogout}>Sign out</button></span>
                 }
             </div>
         </nav>
@@ -32,3 +34,4 @@ const Header = () => {
 };
 
 export default Header;
+
